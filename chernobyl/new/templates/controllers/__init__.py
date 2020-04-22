@@ -2,7 +2,6 @@ import os
 
 from jinja2 import Template
 
-
 VIEW_PATH = os.path.join(__package__.replace(".controllers", ""),"views")
 
 def template(controller, name):

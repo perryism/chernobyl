@@ -1,6 +1,10 @@
+from .params import Params
 from . import template
 
 class ControllerBase(object):
+    def __init__(self):
+        self.params = Params()
+
     def name(self):
         basename = self.__class__.__name__
         return basename.replace("Controller", "").lower()

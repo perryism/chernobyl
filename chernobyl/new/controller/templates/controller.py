@@ -7,7 +7,7 @@ class {{ controller_name }}Controller(ControllerBase):
         return { "alphabets": enumerate(self.__class__.ALPHABETS) }
 
     def show(self):
-        key = request.args.get("key")
+        key = self.params["key"]
         return { "alphabet": self.__class__.ALPHABETS[int(key)] }
 
     def edit(self):
