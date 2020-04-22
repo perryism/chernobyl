@@ -1,3 +1,9 @@
+# Installation
+
+<pre>
+pip install git+https://github.com/perryism/chernobyl.git
+</pre>
+
 # Create a project
 
 <pre>
