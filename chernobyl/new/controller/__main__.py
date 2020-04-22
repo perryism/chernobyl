@@ -3,7 +3,7 @@ import logging
 import argparse
 import sys
 import shutil
-from chernobyl import Path, Controller
+from chernobyl import Path, ControllerGenerator
 
 logging.basicConfig(level=logging.DEBUG, stream=sys.stdout)
 logger = logging.getLogger(__name__)
@@ -24,6 +24,6 @@ module = Path(args.project_name).append(args.project_name)
 controller_templates = Path("chernobyl").append("new").append("controller").append("templates")
 controllers = module.append("controllers")
 
-c = Controller(controller, module)
+c = ControllerGenerator(controller, module)
 c.create_controller(controller_templates)
 c.create_views(controller_templates)

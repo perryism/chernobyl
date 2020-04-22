@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class Controller:
+class ControllerGenerator:
     def __init__(self, name, module_path):
         self.name = name
         self.module_path = module_path
@@ -26,5 +26,3 @@ class Controller:
         template = Template(template_view_path.file("index.html"), basic_reader)
         template.write(views.file("index.html"), controller_name=self.lower_name)
         views.copy_from(template_view_path.file("show.html"))
-
-
