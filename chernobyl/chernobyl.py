@@ -10,7 +10,10 @@ class Chernobyl:
 
     def run(self, **args):
         for controller in self.controllers():
-            logger.debug("Adding %s controller"%controller)
+            logger.debug("Adding %s controller"%controller.name())
+            logger.debug("Adding %s"%controller.default_path())
+            logger.debug("Adding %s"%controller.show_path())
+            logger.debug("Adding %s"%controller.edit_path())
             self.app.add_url_rule(controller.default_path(), controller.name(), controller.index_base, methods=["GET", "POST"])
             self.app.add_url_rule(controller.show_path(), controller.show_path(), controller.show_base, methods=["GET", "POST"])
             self.app.add_url_rule(controller.edit_path(), controller.edit_path(), controller.edit, methods=["POST"])
@@ -29,5 +32,3 @@ class Chernobyl:
 
     def is_controller(self, module, item):
         return type(item) is type and issubclass(item, module.ControllerBase) and item is not self.controller_module().ControllerBase
-
-
