@@ -1,13 +1,16 @@
 from .params import Params
 from . import template
 
+#https://www.geeksforgeeks.org/python-program-to-convert-camel-case-string-to-snake-case/
+change_case = lambda x: ''.join(['_'+i.lower() if i.isupper() else i for i in x]).lstrip('_')
+
 class ControllerBase(object):
     def __init__(self):
         self.params = Params()
 
     def name(self):
         basename = self.__class__.__name__
-        return basename.replace("Controller", "").lower()
+        return change_case(basename.replace("Controller", ""))
 
     def index_base(self):
         return template(self.name(), "index")(self.index)()
