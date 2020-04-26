@@ -18,6 +18,7 @@ class Chernobyl:
             self.app.add_url_rule(controller.show_path(), controller.show_path(), controller.show_base, methods=["GET", "POST"])
             self.app.add_url_rule(controller.edit_path(), controller.edit_path(), controller.edit, methods=["POST"])
 
+        logger.info(self.app.url_map)
         self.app.run(**args)
 
     def controllers(self):
