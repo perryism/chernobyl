@@ -29,6 +29,7 @@ class Chernobyl:
                yield item()
 
     def controller_module(self):
+        logger.debug("Loading controllers from %s"%self.package)
         return __import__("%s.controllers"%self.package).controllers
 
     def is_controller(self, module, item):
