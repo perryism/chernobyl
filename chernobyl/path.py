@@ -29,5 +29,8 @@ class Path(object):
         else:
             shutil.copy2(src_path, self.absolute_path)
 
+    def exists(self):
+        return os.path.exists(self.absolute_path)
+
     def __str__(self):
         return self.absolute_path
