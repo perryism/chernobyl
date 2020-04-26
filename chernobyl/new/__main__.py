@@ -28,3 +28,5 @@ project.copy_from(new_templates.file("requirements.txt"))
 project.copy_from(new_templates.file(".gitignore"))
 project.copy_from(new_templates.file(".author"))
 module.append("controllers").copy_from(new_templates.append("controllers"))
+
+project.append("chernobyl").copy_from(chernobyl)
