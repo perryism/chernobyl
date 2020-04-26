@@ -11,14 +11,17 @@ parser = argparse.ArgumentParser(description='New a simple web app')
 parser.add_argument('project_name', type=str,
                     help='project name')
 
+parser.add_argument('--module_name', type=str, required=False, help='module name')
+
 args = parser.parse_args()
 project_name = args.project_name
+module_name = args.module_name
 
-chernobyl = Path("chernobyl")
+chernobyl = Path(os.path.dirname(__file__)).append("..")
 new_templates = chernobyl.append("new").append("templates")
 
 project = Path(project_name)
-module = project.append(project_name)
+module = project.append(module_name or project_name)
 web = module.append("web")
 web.create()
 
