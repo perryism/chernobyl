@@ -16,7 +16,7 @@ class ControllerGenerator:
         self.absolute_path = module_path.append("controllers").file("%s_controller.py"%self.underscore_name)
 
     def create_controller(self):
-        template = Template(self.template_folder.file("controller.template.py"))
+        template = Template(self.template_folder.file("controller.py.template"))
         template.write(self.absolute_path, controller_name = self.name)
 
         controller_init = self.module_path.append("controllers").file("__init__.py")
