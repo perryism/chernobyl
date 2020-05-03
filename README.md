@@ -12,8 +12,10 @@ python -m chernobyl.new &lt;project_name&gt;
 
 # Add controller
 
+Inside the newly create project
+
 <pre>
-python -m chernobyl.new.controller &lt;project_name&gt; &lt;Camel case controller name&gt;
+python -m chernobyl.generate &lt;module_name&gt; &lt;Camel case controller name&gt;
 </pre>
 
 # Run
