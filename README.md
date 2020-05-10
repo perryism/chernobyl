@@ -10,9 +10,15 @@ pip install git+https://github.com/perryism/chernobyl.git
 python -m chernobyl.new &lt;project_name&gt;
 </pre>
 
+Add CSS bootstrap
+
+<pre>
+python -m chernobyl.new &lt;project_name&gt; --bootstrap
+</pre>
+
 # Add controller
 
-Inside the newly create project
+Inside the newly created project
 
 <pre>
 python -m chernobyl.generate &lt;module_name&gt; &lt;Camel case controller name&gt;
