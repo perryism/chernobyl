@@ -29,7 +29,7 @@ web = module.append("web")
 web.create()
 
 web.copy_from(chernobyl.file("chernobyl.py"))
-web.copy_from(new_templates.file("__init__.py"))
+web.copy_from(new_templates.file("__init__.py.template"), "__init__.py")
 web.copy_from(new_templates.file("__main__.py"))
 project.copy_from(new_templates.file("requirements.txt"))
 project.copy_from(new_templates.file(".gitignore"))

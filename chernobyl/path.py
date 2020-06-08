@@ -21,13 +21,19 @@ class Path(object):
     def file(self, name):
         return os.path.join(self.absolute_path, name)
 
-    def copy_from(self, src_path):
+    def copy_from(self, src_path, dst_name=None):
         src_path = str(src_path)
         logger.debug("Copy from %s to %s"%(src_path, self.absolute_path))
-        if os.path.isdir(src_path):
-            shutil.copytree(src_path, self.absolute_path)
+
+        if dst_name:
+            dst_path = os.path.join(self.absolute_path, dst_name)
         else:
-            shutil.copy2(src_path, self.absolute_path)
+            dst_path = self.absolute_path
+
+        if os.path.isdir(src_path):
+            shutil.copytree(src_path, dst_path)
+        else:
+            shutil.copy2(src_path, dst_path)
 
     def exists(self):
         return os.path.exists(self.absolute_path)
