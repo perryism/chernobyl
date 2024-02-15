@@ -13,9 +13,13 @@ class ControllerBase(object):
         return change_case(basename.replace("Controller", ""))
 
     def index_base(self):
+        if self.return_json(self.index):
+            return self.index()
         return template(self.name(), "index")(self.index)()
 
     def show_base(self):
+        if self.return_json(self.show):
+            return self.show()
         return template(self.name(), "show")(self.show)()
 
     def edit_base(self):
@@ -29,3 +33,9 @@ class ControllerBase(object):
 
     def edit_path(self):
         return "%s/edit"%self.default_path()
+
+    def return_json(self, func):
+        """
+        if the path returns dict, templates will be skipped
+        """
+        return "return" in func.__annotations__ and func.__annotations__["return"] == dict
